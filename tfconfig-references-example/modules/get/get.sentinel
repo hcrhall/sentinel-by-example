@@ -1,0 +1,23 @@
+import "strings"
+import "tfplan/v2" as tfplan
+
+config = func(config) {
+  result = {}
+	for config as k, v {
+    result[k] = v.constant_value else reference_value(v.references[0])
+  }
+  return result
+}
+
+reference_value = func(reference) {
+  is_variable = strings.has_prefix(reference, "var.")
+  case {
+  when is_variable:
+    name = strings.split(reference, ".")[1]
+    return tfplan.variables[name].value
+  else:
+    argument = strings.split(reference, ".")[-1]
+    resource = strings.trim_suffix(reference, string("." + argument))
+    return tfplan.resource_changes[resource].change.after[argument] else "computed_value"
+  }
+}

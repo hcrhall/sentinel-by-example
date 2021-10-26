@@ -1,4 +1,5 @@
-// Playground: https://play.sentinelproject.io/p/p0QNXiz5oBw
+// Get Module Example: https://play.sentinelproject.io/p/dGd7LrnSzQR
+// References Playground: https://play.sentinelproject.io/p/p0QNXiz5oBw
 
 import "tfconfig/v2" as tfconfig
 
