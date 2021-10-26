@@ -1,0 +1,54 @@
+// Playground: https://play.sentinelproject.io/p/p0QNXiz5oBw
+
+import "tfconfig/v2" as tfconfig
+
+# AWS RDS GLOBAL CLUSTER
+// Filters out all "aws_rds_global_cluster" resources from the Terraform configuration
+aws_rds_global_clusters = filter tfconfig.resources as _, resource {
+    resource.type is "aws_rds_global_cluster" and
+        resource.mode is "managed"
+}
+
+// Create a map that contains the address for the aws_rds_global_cluster resource.
+// The value will be used to ensure that all remaining clusters/cluster instances
+// are associated with the global cluster.
+aws_rds_global_cluster_config = map aws_rds_global_clusters as _, global_cluster {
+  {
+		"address": global_cluster.address,
+  }
+}
+
+# AWS RDS CLUSTER
+// Filters out all "aws_rds_cluster" resources from the Terraform configuration.
+aws_rds_clusters = filter tfconfig.resources as _, resource {
+    resource.type is "aws_rds_cluster" and
+        resource.mode is "managed"
+}
+
+// Verify that the cluster engine configuration is referenced from the global cluster
+// which indicates that it is an associated resource
+enforce_aws_rds_cluster_engine = rule {
+  all aws_rds_clusters as _, cluster {
+    cluster.config.engine.references contains aws_rds_global_cluster_config[0].address
+  }
+}
+
+# AWS RDS CLUSTER INSTANCE
+// Filters out all "aws_rds_cluster_instance" resources from the Terraform configuration.
+aws_rds_cluster_instances = filter tfconfig.resources as _, resource {
+    resource.type is "aws_rds_cluster_instance" and
+        resource.mode is "managed"
+}
+
+// Verify that the cluster instance engine configuration is referenced from the global cluster
+// which indicates that it is an associated resource
+enforce_aws_rds_cluster_instance_engine = rule {
+  all aws_rds_cluster_instances as _, instance {
+    instance.config.engine.references contains aws_rds_global_cluster_config[0].address
+  }
+}
+
+main = rule {
+	enforce_aws_rds_cluster_engine and
+	enforce_aws_rds_cluster_instance_engine
+}

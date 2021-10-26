@@ -1,0 +1,229 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data":    {},
+		"modules": {},
+		"outputs": {},
+		"providers": {
+			"aws": {
+				"alias": {
+					"": {
+						"config":     {},
+						"references": {},
+						"version":    "3.60.0",
+					},
+					"primary": {
+						"config": {
+							"access_key":                  "mock_access_key",
+							"region":                      "us-east-2",
+							"secret_key":                  "mock_secret_key",
+							"skip_credentials_validation": true,
+							"skip_requesting_account_id":  true,
+						},
+						"references": {
+							"access_key":                  [],
+							"region":                      [],
+							"secret_key":                  [],
+							"skip_credentials_validation": [],
+							"skip_requesting_account_id":  [],
+						},
+						"version": "3.60.0",
+					},
+					"secondary": {
+						"config": {
+							"access_key":                  "mock_access_key",
+							"region":                      "us-east-2",
+							"secret_key":                  "mock_secret_key",
+							"skip_credentials_validation": true,
+							"skip_requesting_account_id":  true,
+						},
+						"references": {
+							"access_key":                  [],
+							"region":                      [],
+							"secret_key":                  [],
+							"skip_credentials_validation": [],
+							"skip_requesting_account_id":  [],
+						},
+						"version": "3.60.0",
+					},
+				},
+				"config":     {},
+				"references": {},
+				"version":    "3.60.0",
+			},
+		},
+		"resources": {
+			"aws_rds_cluster": {
+				"primary": {
+					"config": {
+						"database_name":        "example_db",
+						"db_subnet_group_name": "default",
+						"master_password":      "somepass123",
+						"master_username":      "username",
+					},
+					"provisioners": null,
+					"references": {
+						"cluster_identifier": [
+							"var.rds_primary_cluster_identifier",
+						],
+						"database_name":        [],
+						"db_subnet_group_name": [],
+						"engine": [
+							"aws_rds_global_cluster.example.engine",
+							"aws_rds_global_cluster.example",
+						],
+						"engine_version": [
+							"aws_rds_global_cluster.example.engine_version",
+							"aws_rds_global_cluster.example",
+						],
+						"global_cluster_identifier": [
+							"aws_rds_global_cluster.example.id",
+							"aws_rds_global_cluster.example",
+						],
+						"master_password": [],
+						"master_username": [],
+					},
+				},
+				"secondary": {
+					"config": {
+						"db_subnet_group_name": "default",
+					},
+					"provisioners": null,
+					"references": {
+						"cluster_identifier": [
+							"var.rds_secondary_cluster_identifier",
+						],
+						"db_subnet_group_name": [],
+						"engine": [
+							"aws_rds_global_cluster.example.engine",
+							"aws_rds_global_cluster.example",
+						],
+						"engine_version": [
+							"aws_rds_global_cluster.example.engine_version",
+							"aws_rds_global_cluster.example",
+						],
+						"global_cluster_identifier": [
+							"aws_rds_global_cluster.example.id",
+							"aws_rds_global_cluster.example",
+						],
+					},
+				},
+			},
+			"aws_rds_cluster_instance": {
+				"primary": {
+					"config": {
+						"db_subnet_group_name": "default",
+						"identifier":           "app1-primary-cluster-instance",
+						"instance_class":       "db.r4.large",
+					},
+					"provisioners": null,
+					"references": {
+						"cluster_identifier": [
+							"aws_rds_cluster.primary.id",
+							"aws_rds_cluster.primary",
+						],
+						"db_subnet_group_name": [],
+						"engine": [
+							"aws_rds_global_cluster.example.engine",
+							"aws_rds_global_cluster.example",
+						],
+						"engine_version": [
+							"aws_rds_global_cluster.example.engine_version",
+							"aws_rds_global_cluster.example",
+						],
+						"identifier":     [],
+						"instance_class": [],
+					},
+				},
+				"secondary": {
+					"config": {
+						"db_subnet_group_name": "default",
+						"identifier":           "app1-secondary-cluster-instance",
+						"instance_class":       "db.r4.large",
+					},
+					"provisioners": null,
+					"references": {
+						"cluster_identifier": [
+							"aws_rds_cluster.secondary.id",
+							"aws_rds_cluster.secondary",
+						],
+						"db_subnet_group_name": [],
+						"engine": [
+							"aws_rds_global_cluster.example.engine",
+							"aws_rds_global_cluster.example",
+						],
+						"engine_version": [
+							"aws_rds_global_cluster.example.engine_version",
+							"aws_rds_global_cluster.example",
+						],
+						"identifier":     [],
+						"instance_class": [],
+					},
+				},
+			},
+			"aws_rds_global_cluster": {
+				"example": {
+					"config": {
+						"database_name":  "example_db",
+						"engine":         "aurora",
+						"engine_version": "5.6.mysql_aurora.1.22.2",
+					},
+					"provisioners": null,
+					"references": {
+						"database_name":  [],
+						"engine":         [],
+						"engine_version": [],
+						"global_cluster_identifier": [
+							"var.global_cluster_identifier",
+						],
+					},
+				},
+			},
+		},
+		"variables": {
+			"global_cluster_identifier": {
+				"default":     "app1-rds-global",
+				"description": "",
+			},
+			"rds_primary_cluster_identifier": {
+				"default":     "app1-rds-primary",
+				"description": "",
+			},
+			"rds_secondary_cluster_identifier": {
+				"default":     "app1-rds-secondary",
+				"description": "",
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs

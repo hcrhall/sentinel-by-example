@@ -1,0 +1,1041 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"aws_rds_cluster": {
+				"primary": {
+					0: {
+						"applied": {
+							"allow_major_version_upgrade":     null,
+							"backtrack_window":                null,
+							"backup_retention_period":         1,
+							"cluster_identifier":              "app1-rds-primary",
+							"copy_tags_to_snapshot":           false,
+							"database_name":                   "example_db",
+							"db_subnet_group_name":            "default",
+							"deletion_protection":             null,
+							"enable_http_endpoint":            false,
+							"enabled_cloudwatch_logs_exports": null,
+							"engine":                              "aurora",
+							"engine_mode":                         "provisioned",
+							"engine_version":                      "5.6.mysql_aurora.1.22.2",
+							"final_snapshot_identifier":           null,
+							"iam_database_authentication_enabled": null,
+							"master_password":                     "REDACTED_SENSITIVE",
+							"master_username":                     "username",
+							"replication_source_identifier":       null,
+							"restore_to_point_in_time":            [],
+							"s3_import":                           [],
+							"scaling_configuration":               [],
+							"skip_final_snapshot":                 false,
+							"snapshot_identifier":                 null,
+							"source_region":                       null,
+							"tags":                                null,
+							"timeouts":                            null,
+						},
+						"destroy": false,
+						"diff": {
+							"allow_major_version_upgrade": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"apply_immediately": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"availability_zones.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"backtrack_window": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"backup_retention_period": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"cluster_identifier": {
+								"computed": false,
+								"new":      "app1-rds-primary",
+								"old":      "",
+							},
+							"cluster_identifier_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_members.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_resource_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"copy_tags_to_snapshot": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"database_name": {
+								"computed": false,
+								"new":      "example_db",
+								"old":      "",
+							},
+							"db_cluster_parameter_group_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"db_subnet_group_name": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_http_endpoint": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enabled_cloudwatch_logs_exports": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"engine": {
+								"computed": false,
+								"new":      "aurora",
+								"old":      "",
+							},
+							"engine_mode": {
+								"computed": false,
+								"new":      "provisioned",
+								"old":      "",
+							},
+							"engine_version": {
+								"computed": false,
+								"new":      "5.6.mysql_aurora.1.22.2",
+								"old":      "",
+							},
+							"engine_version_actual": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"final_snapshot_identifier": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"global_cluster_identifier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"hosted_zone_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"iam_database_authentication_enabled": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"iam_roles.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"kms_key_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_password": {
+								"computed": false,
+								"new":      "REDACTED_SENSITIVE",
+								"old":      "",
+							},
+							"master_username": {
+								"computed": false,
+								"new":      "username",
+								"old":      "",
+							},
+							"port": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_backup_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_maintenance_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"reader_endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"replication_source_identifier": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"restore_to_point_in_time.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"s3_import.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"scaling_configuration.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"skip_final_snapshot": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"snapshot_identifier": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"source_region": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_encrypted": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"tags_all.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vpc_security_group_ids.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"secondary": {
+					0: {
+						"applied": {
+							"allow_major_version_upgrade":     null,
+							"backtrack_window":                null,
+							"backup_retention_period":         1,
+							"cluster_identifier":              "app1-rds-secondary",
+							"copy_tags_to_snapshot":           false,
+							"db_subnet_group_name":            "default",
+							"deletion_protection":             null,
+							"enable_http_endpoint":            false,
+							"enabled_cloudwatch_logs_exports": null,
+							"engine":                              "aurora",
+							"engine_mode":                         "provisioned",
+							"engine_version":                      "5.6.mysql_aurora.1.22.2",
+							"final_snapshot_identifier":           null,
+							"iam_database_authentication_enabled": null,
+							"master_password":                     "REDACTED_SENSITIVE",
+							"replication_source_identifier":       null,
+							"restore_to_point_in_time":            [],
+							"s3_import":                           [],
+							"scaling_configuration":               [],
+							"skip_final_snapshot":                 false,
+							"snapshot_identifier":                 null,
+							"source_region":                       null,
+							"tags":                                null,
+							"timeouts":                            null,
+						},
+						"destroy": false,
+						"diff": {
+							"allow_major_version_upgrade": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"apply_immediately": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"availability_zones.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"backtrack_window": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"backup_retention_period": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"cluster_identifier": {
+								"computed": false,
+								"new":      "app1-rds-secondary",
+								"old":      "",
+							},
+							"cluster_identifier_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_members.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_resource_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"copy_tags_to_snapshot": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"database_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"db_cluster_parameter_group_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"db_subnet_group_name": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_http_endpoint": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enabled_cloudwatch_logs_exports": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"engine": {
+								"computed": false,
+								"new":      "aurora",
+								"old":      "",
+							},
+							"engine_mode": {
+								"computed": false,
+								"new":      "provisioned",
+								"old":      "",
+							},
+							"engine_version": {
+								"computed": false,
+								"new":      "5.6.mysql_aurora.1.22.2",
+								"old":      "",
+							},
+							"engine_version_actual": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"final_snapshot_identifier": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"global_cluster_identifier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"hosted_zone_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"iam_database_authentication_enabled": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"iam_roles.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"kms_key_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_password": {
+								"computed": false,
+								"new":      "REDACTED_SENSITIVE",
+								"old":      "",
+							},
+							"master_username": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"port": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_backup_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_maintenance_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"reader_endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"replication_source_identifier": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"restore_to_point_in_time.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"s3_import.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"scaling_configuration.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"skip_final_snapshot": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"snapshot_identifier": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"source_region": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_encrypted": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"tags_all.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vpc_security_group_ids.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"aws_rds_cluster_instance": {
+				"primary": {
+					0: {
+						"applied": {
+							"auto_minor_version_upgrade": true,
+							"copy_tags_to_snapshot":      false,
+							"db_subnet_group_name":       "default",
+							"engine":                     "aurora",
+							"engine_version":             "5.6.mysql_aurora.1.22.2",
+							"identifier":                 "app1-primary-cluster-instance",
+							"instance_class":             "db.r4.large",
+							"monitoring_interval":        0,
+							"promotion_tier":             0,
+							"publicly_accessible":        false,
+							"tags":                       null,
+							"timeouts":                   null,
+						},
+						"destroy": false,
+						"diff": {
+							"apply_immediately": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"auto_minor_version_upgrade": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"availability_zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ca_cert_identifier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_identifier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"copy_tags_to_snapshot": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"db_parameter_group_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"db_subnet_group_name": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"dbi_resource_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"engine": {
+								"computed": false,
+								"new":      "aurora",
+								"old":      "",
+							},
+							"engine_version": {
+								"computed": false,
+								"new":      "5.6.mysql_aurora.1.22.2",
+								"old":      "",
+							},
+							"engine_version_actual": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"identifier": {
+								"computed": false,
+								"new":      "app1-primary-cluster-instance",
+								"old":      "",
+							},
+							"identifier_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_class": {
+								"computed": false,
+								"new":      "db.r4.large",
+								"old":      "",
+							},
+							"kms_key_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"monitoring_interval": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"monitoring_role_arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"performance_insights_enabled": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"performance_insights_kms_key_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"port": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_backup_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_maintenance_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"promotion_tier": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"publicly_accessible": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"storage_encrypted": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"tags_all.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"writer": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"secondary": {
+					0: {
+						"applied": {
+							"auto_minor_version_upgrade": true,
+							"copy_tags_to_snapshot":      false,
+							"db_subnet_group_name":       "default",
+							"engine":                     "aurora",
+							"engine_version":             "5.6.mysql_aurora.1.22.2",
+							"identifier":                 "app1-secondary-cluster-instance",
+							"instance_class":             "db.r4.large",
+							"monitoring_interval":        0,
+							"promotion_tier":             0,
+							"publicly_accessible":        false,
+							"tags":                       null,
+							"timeouts":                   null,
+						},
+						"destroy": false,
+						"diff": {
+							"apply_immediately": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"auto_minor_version_upgrade": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"availability_zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ca_cert_identifier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_identifier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"copy_tags_to_snapshot": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"db_parameter_group_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"db_subnet_group_name": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"dbi_resource_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"engine": {
+								"computed": false,
+								"new":      "aurora",
+								"old":      "",
+							},
+							"engine_version": {
+								"computed": false,
+								"new":      "5.6.mysql_aurora.1.22.2",
+								"old":      "",
+							},
+							"engine_version_actual": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"identifier": {
+								"computed": false,
+								"new":      "app1-secondary-cluster-instance",
+								"old":      "",
+							},
+							"identifier_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_class": {
+								"computed": false,
+								"new":      "db.r4.large",
+								"old":      "",
+							},
+							"kms_key_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"monitoring_interval": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"monitoring_role_arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"performance_insights_enabled": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"performance_insights_kms_key_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"port": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_backup_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"preferred_maintenance_window": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"promotion_tier": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"publicly_accessible": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"storage_encrypted": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"tags_all.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"writer": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"aws_rds_global_cluster": {
+				"example": {
+					0: {
+						"applied": {
+							"database_name":             "example_db",
+							"deletion_protection":       false,
+							"engine":                    "aurora",
+							"engine_version":            "5.6.mysql_aurora.1.22.2",
+							"force_destroy":             null,
+							"global_cluster_identifier": "app1-rds-global",
+						},
+						"destroy": false,
+						"diff": {
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"database_name": {
+								"computed": false,
+								"new":      "example_db",
+								"old":      "",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"engine": {
+								"computed": false,
+								"new":      "aurora",
+								"old":      "",
+							},
+							"engine_version": {
+								"computed": false,
+								"new":      "5.6.mysql_aurora.1.22.2",
+								"old":      "",
+							},
+							"force_destroy": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"global_cluster_identifier": {
+								"computed": false,
+								"new":      "app1-rds-global",
+								"old":      "",
+							},
+							"global_cluster_members.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"global_cluster_resource_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_db_cluster_identifier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_encrypted": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.0.5"
+
+variables = {
+	"global_cluster_identifier":        "app1-rds-global",
+	"rds_primary_cluster_identifier":   "app1-rds-primary",
+	"rds_secondary_cluster_identifier": "app1-rds-secondary",
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources
