@@ -1,0 +1,14 @@
+import "http"
+import "json"
+
+request = http.request("https://postman-echo.com/post").
+            with_header("Content-Type", "application/json").
+            with_body(json.marshal({ "foo": "bar" }))
+
+response = http.post(request)
+
+body = json.unmarshal(response.body)
+
+main = rule {
+    body.json.foo is "bar"
+}
